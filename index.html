@@ -5,7 +5,7 @@
     <title></title>
 
     <style>
-        #box div{width: 200px;height: 200px;border: 1px #000 solid;display: none;}
+        #box div,#box2 div{width: 200px;height: 200px;border: 1px #000 solid;display: none;}
         .active{background: red;}
     </style>
 </head>
@@ -20,17 +20,30 @@
     <div id="div3">3</div>
 </div>
 
+<div id="box2">
+    <input class="active" type="button" value="div1"/>
+    <input type="button" value="div2"/>
+    <input type="button" value="div3"/>
+    <div style="display: block">1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+
+
+
 
 <script>
 
     window.onload = function () {
 
-        var t1 = new Tab();
+        var t1 = new Tab('box');
         t1.init();
+        var t2 = new Tab('box2');
+        t2.init();
     };
 
-    function Tab(){
-        this.oParent = document.getElementById('box');
+    function Tab(id){
+        this.oParent = document.getElementById(id);
         this.aInput = this.oParent.getElementsByTagName('input');
         this.aDiv = this.oParent.getElementsByTagName('div');
     }
