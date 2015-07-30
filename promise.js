@@ -32,15 +32,17 @@ function getOne(num){
     return Q.promise(function (resolve, reject) {
         var data = num;
         resolve(data);
-    })
-}
+    });
+};
+
 
 function getTwo(num2){
     return Q.promise(function (resolve, reject) {
         var data = num2;
         resolve(data);
-    })
-}
+    });
+};
+
 
 getOne(100).then(function (data) {
     console.log(data);
@@ -48,7 +50,7 @@ getOne(100).then(function (data) {
 }).then(function(data){
     console.log(data);
     res.render('index',{title:data});
-})
+});
 
 
 
