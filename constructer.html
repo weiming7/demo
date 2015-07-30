@@ -15,6 +15,9 @@
 
         }
 
+         //只自动生成  constructer
+        Person.prototype.constructor = Person;
+
         var p = new Person();
 
         var box = document.getElementById('box');
@@ -25,6 +28,31 @@
 
             box.innerHTML = "true";
         }
+
+
+        // Object.prototype.hasOwnProperty
+        box.innerHTML = p.hasOwnProperty('box');
+        //true
+        //p.hasOwnProperty = Object.prototype.hasOwnProperty
+
+
+
+        //不小心改掉了 constructer
+//
+//        function Aaa(){
+//
+//        }   赋值 constructor被覆盖了
+//        Aaa.prototype = {
+//            constructor : Ass,
+//            name:'xxx',
+//            age : 20
+//        }
+
+
+
+
+
+
 
     }
 </script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+
+    var arr = []
+    Object.prototype.toString.call(arr) == '[object Array]'
+
+
+
+    function Aaa(){
+
+    }
+
+    var a1 = new Aaa();
+
+
+    //是否在 同一个原型链
+
+    alert(a1 instanceof Aaa);
+
+
+
+    var arr = []
+
+    arr instanceof  Array
+
+
+
+    typeof 不靠谱
+    'undefined'
+    'boolean'
+    'string'
+    'number'
+    'object'
+    'function'
+    对null返回是'object'，你却不能真正当对象使用
+    对NaN返回是'number'，你却不能使用它进行算术运算
+    不能区分对象、数组、正则，对它们操作都返回'object'
+    Safar5,Chrome7之前的版本对正则对象返回 'function'
+
+
+
+    Array.prototype.toString
+    Object.prototype.toString
+
+
+    arr.toString()
+
+
+    var num =2255;
+    num.toString(16);
+
+
+
+
+
+</script>
+
+</body>
+</html>
