@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //拷贝继承 类式继承 原型继承
+
+    //这里是类式继承
+    function Aaa(){
+        this.name = 'tom';
+    }
+
+
+
+    function Bbb(){
+        Aaa.call(this);
+    }
+
+
+
+    var F = function () {
+    }
+
+    F.prototype = Aaa.prototype;   //方法继承
+    Bbb.prototype = new F();
+    Bbb.prototype.constructor = Bbb;
+    var b1 = new Bbb();
+
+
+
+
+</script>
+
+</body>
+</html>

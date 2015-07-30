@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    setInterval(function () {
+        alert(1);
+    },1000);
+
+    alert(2);
+
+    function show(time,fn){
+        setInterval(function () {
+
+            fn()
+        },time*1000)
+    }
+
+    show(1,function(){
+
+    })
+
+
+
+    promise
+
+    pending       resolve     reject
+
+
+    then 调用  resolve reject
+
+
+
+
+
+    function show(time){
+
+        var promise = new Promise(function(resolve,reject){
+
+            setInterval(function () {
+
+                resolve();
+
+            },time*1000)
+
+
+        });
+
+        return promise;
+    }
+
+    show(1).then(function(){console.log('成功')});
+
+
+
+
+    show(1).then(function(){console.log('成功'); return show(1)})
+            .then()
+
+
+
+
+    queue dequene
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
