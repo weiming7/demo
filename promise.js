@@ -47,6 +47,7 @@ getOne(100).then(function (data) {
     return getTwo(data);
 }).then(function(data){
     console.log(data);
+    res.render('index',{title:data});
 })
 
 
