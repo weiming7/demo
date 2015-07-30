@@ -40,12 +40,14 @@
         t1.init();
         var t2 = new Tab('box2');
         t2.init();
+        t2.autoPlay();
     };
 
     function Tab(id){
         this.oParent = document.getElementById(id);
         this.aInput = this.oParent.getElementsByTagName('input');
         this.aDiv = this.oParent.getElementsByTagName('div');
+        this.iNow = 0;
     }
 
     Tab.prototype.init = function () {
@@ -67,6 +69,29 @@
         }
         obj.className = 'active';
         this.aDiv[obj.index].style.display = 'block';
+    }
+
+    Tab.prototype.autoPlay = function () {
+        var This = this;
+
+        setInterval(function () {
+
+            if(This.iNow == This.aInput.length - 1){
+                This.iNow = 0;
+            }
+            else{
+                This.iNow++;
+            }
+
+            for(var i=0;i<This.aInput.length;i++){
+                This.aInput[i].className = '';
+                This.aDiv[i].style.display = 'none';
+            }
+
+            This.aInput[This.iNow].className = 'active';
+            This.aDiv[This.iNow].style.display = 'block';
+
+        },2000)
     }
 
 
