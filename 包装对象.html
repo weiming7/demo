@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+var str = 'hello';
+String.prototype.lastValue = function () {
+    return this.charAt(this.length-1)
+}
+//alert(str.lastValue());
+str.num = 10;  //包装对象消失
+alert(str.num); //新对象
+
+
+
+</script>
+
+</body>
+</html>
