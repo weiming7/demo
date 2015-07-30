@@ -39,8 +39,9 @@
         var This = this;
         for(var i=0; i<this.aInput.length;i++){
             this.aInput[i].index = i;
+            //赋值关系   一定要加function
             this.aInput[i].onclick = function(){
-                This.change(this);
+                This.change(this); //自己调用
             }
         }
     }
