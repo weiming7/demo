@@ -23,36 +23,38 @@
 
 <script>
 
-    var oParent = null;
-    var aInput = null;
-    var aDiv = null;
-
-
     window.onload = function () {
 
-        oParent = document.getElementById('box');
-        aInput = oParent.getElementsByTagName('input');
-        aDiv = oParent.getElementsByTagName('div');
-
-        init();
-
+        var t1 = new Tab();
+        t1.init();
     };
 
-    function init(){
-        for(var i=0;i<aInput.length;i++){
-            aInput[i].index = i;
-            aInput[i].onclick = change;
+    function Tab(){
+        this.oParent = document.getElementById('box');
+        this.aInput = this.oParent.getElementsByTagName('input');
+        this.aDiv = this.oParent.getElementsByTagName('div');
+    }
+
+    Tab.prototype.init = function () {
+        var This = this;
+        for(var i=0; i<this.aInput.length;i++){
+            this.aInput[i].index = i;
+            this.aInput[i].onclick = function(){
+                This.change(this);
+            }
         }
-    };
+    }
 
-    function change(){
-        for(var i=0;i<aInput.length;i++){
-            aInput[i].className = '';
-            aDiv[i].style.display = 'none';
+
+    Tab.prototype.change = function(obj){
+        for(var i=0;i<this.aInput.length;i++){
+            this.aInput[i].className = '';
+            this.aDiv[i].style.display = 'none';
         }
-        this.className = 'active';
-        aDiv[this.index].style.display = 'block';
-    };
+        obj.className = 'active';
+        this.aDiv[obj.index].style.display = 'block';
+    }
+
 
 </script>
 
