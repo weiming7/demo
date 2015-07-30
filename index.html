@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head lang="zh">
     <meta charset="UTF-8">
     <title></title>
+
+    <style>
+        #box div{width: 200px;height: 200px;border: 1px #000 solid;display: none;}
+        .active{background: red;}
+    </style>
 </head>
 <body>
-div
-div
-div <div id="box"></div>
+
+<div id="box">
+    <input class="active" type="button" value="div1"/>
+    <input type="button" value="div2"/>
+    <input type="button" value="div3"/>
+    <div id="div1" style="display: block">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+</div>
+
+
+<script>
+    window.onload = function () {
+
+        var oParent = document.getElementById('box');
+        var aInput = oParent.getElementsByTagName('input');
+        var aDiv = oParent.getElementsByTagName('div');
+
+        for(var i=0;i<aInput.length;i++){
+            aInput[i].index = i;
+            aInput[i].onclick = function () {
+                for(var i=0;i<aInput.length;i++){
+                    aInput[i].className = '';
+                    aDiv[i].style.display = 'none';
+                }
+                this.className = 'active';
+                aDiv[this.index].style.display = 'block';
+            }
+        }
+
+
+    }
+
+</script>
+
 </body>
 </html>
