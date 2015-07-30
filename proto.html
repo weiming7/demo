@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+    //实例对象与原型之间的连接
+    function person(){
+        this.num = 20;
+    }
+
+    Object.prototype.num2 =50;
+    person.prototype.num = 10;
+
+    var p1 = new person();
+
+    alert(p1.__proto__.num2);  //原型链
+
+</script>
+</body>
+</html>
