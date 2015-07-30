@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    继承 ： 子类不影响父类，子类可以继承父类一些功能
+
+    call    属性
+    for in  方法 拷贝继承  jquery
+
+    function Person(name){
+        this.name = name;
+    }
+    var p = new Person('tom');
+
+
+    function stu(name){
+        Person.call(this,name);  //继承属性
+    }
+
+    stu.prototype = Person.prototype; //继承方法  引用 同一个地址
+                                      //相互影响
+
+
+
+    var stu = new stu();
+
+
+
+
+    //对象的复制
+    var a = {
+        name : 'tom'
+    }
+
+    var b = {};
+
+    extend(b,a);
+
+    function extend(obj1,obj2){
+        for(var attr in a){
+            b[attr] = a[attr]
+        }
+    }
+
+    //函数赋值了，不存在引用。函数是值。   重新赋值，链条已经断开了。
+    var a =[1,2,3];
+    var b = a;
+    b.push(4);
+    a //1234
+
+    b = [1,2,3,4];
+
+    a //123
+
+</script>
+
+</body>
+</html>
